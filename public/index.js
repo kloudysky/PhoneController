@@ -63,7 +63,7 @@ socket.on("connect", () => {
         const touchStart = (e) => {
           e.preventDefault();
           controllerState.accelerate = true;
-          emiteUpdates();
+          emitUpdates();
         };
 
         const touchEnd = (e) => {
@@ -80,7 +80,7 @@ socket.on("connect", () => {
           controllerState.rotation.gamma = e.rotationRate.gamma;
           controllerState.rotation.beta = e.rotationRate.beta;
           controllerState.rotation.alpha = e.rotationRate.alpha;
-          emiteUpdates();
+          emitUpdates();
         };
 
         const deviceOrientation = (e) => {
@@ -88,6 +88,7 @@ socket.on("connect", () => {
           controllerState.orientation.gamma = e.gamma;
           controllerState.orientation.beta = e.beta;
           controllerState.orientation.alpha = e.alpha;
+          emitUpdates();
         };
 
         document.body.addEventListener("touchstart", touchStart, false); // iOS & Android
